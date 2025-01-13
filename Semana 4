@@ -1,0 +1,47 @@
+class Coche:
+    def __init__(self, marca, modelo, color):
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
+        self.velocidad = 0
+
+    def acelerar(self):
+        self.velocidad += 50
+        print("Acelerando...")
+
+    def frenar(self):
+        self.velocidad -= 25
+        print("Frenando...")
+
+# Creando objetos (coches)
+mi_coche = Coche("Toyota", "Corolla", "Rojo")
+tu_coche = Coche("Ford", "Mustang", "Azul")
+
+# Usando los objetos
+mi_coche.acelerar()
+print("La velocidad de mi coche es:", mi_coche.velocidad)
+tu_coche.frenar()
+print("El frenado de mi coche es:", tu_coche.velocidad)
+
+#Modelo de un perro
+class Perro:
+    def __init__(self, nombre, raza, edad):
+        self.nombre = nombre
+        self.raza = raza
+        self.edad = edad
+
+    def nombre(self):
+        print("Wos")
+
+    def ladrar(self):
+        print("¡Guau!")
+
+    def jugar(self):
+        print("¡Estoy jugando!")
+
+# Creando un objeto (perro)
+mi_perro = Perro("Wos", "Mestizo", 3)
+
+# Usando el objeto
+mi_perro.ladrar()
+mi_perro.jugar()
