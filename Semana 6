@@ -1,0 +1,48 @@
+#simular un zoologico de animales.
+
+class Animal:
+    def __init__(self, nombre, edad):
+        self.__nombre = nombre
+        self.__edad = edad
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def get_edad(self):
+        return self.__edad
+
+    def moverse(self):
+        print("El animal está emitiendo un sonido")
+
+    def hacer_ruido(self):
+        pass  # Método abstracto, se implementará en las subclases
+
+class León(Animal):
+    def hacer_ruido(self):
+        print("¡Rugido!")
+
+class Elefante(Animal):
+    def hacer_ruido(self):
+        print("¡Trompeteo!")
+
+class Pájaro(Animal):
+    def hacer_ruido(self):
+        print("¡Pío!")
+
+# Creación de objetos
+leon = León("Mufasa el leon", 5)
+elefante = Elefante("Dumbo el elefante", 10)
+pajaro = Pájaro("Loquillo el pajaro", 2)
+
+# Uso de los objetos
+print(leon.get_nombre(), "tiene", leon.get_edad(), "años.")
+leon.moverse()
+leon.hacer_ruido()
+
+print(elefante.get_nombre(), "tiene", elefante.get_edad(), "años.")
+elefante.moverse()
+elefante.hacer_ruido()
+
+print(pajaro.get_nombre(), "tiene", pajaro.get_edad(), "años.")
+pajaro.moverse()
+pajaro.hacer_ruido()
