@@ -1,0 +1,70 @@
+import time
+
+class CuentaBancaria:
+    """Representa una cuenta bancaria con un saldo inicial."""
+
+    def __init__(self, titular, saldo_inicial=0):
+        """Constructor de la clase CuentaBancaria.
+
+        Args:
+            titular (str): Nombre del titular de la cuenta.
+            saldo_inicial (float, optional): Saldo inicial de la cuenta. Defaults to 0.
+        """
+        self.titular = titular
+        self.saldo = saldo_inicial
+        print(f"Se ha creado una cuenta para {self.titular} con un saldo inicial de {self.saldo} euros.")
+
+    def __del__(self):
+        """Destructor de la clase CuentaBancaria."""
+        print(f"La cuenta de {self.titular} ha sido cerrada.")
+
+class ConexionBD:
+    """Representa una conexión a una base de datos."""
+
+    def __init__(self, host, usuario, contraseña):
+        """Constructor de la clase ConexionBD.
+
+        Args:
+            host (str): Host de la base de datos.
+            usuario (str): Usuario de la base de datos.
+            contraseña (str): Contraseña del usuario.
+        """
+        self.host = host
+        self.usuario = usuario
+        self.contraseña = contraseña
+        print("Conectando a la base de datos...")
+        # Simulación de la conexión a la base de datos
+        time.sleep(2)
+        print("Conexión establecida.")
+        self.conexion = True
+
+    def __del__(self):
+        """Destructor de la clase ConexionBD."""
+        if self.conexion:
+            print("Cerrando conexión a la base de datos...")
+            # Simulación del cierre de la conexión
+            time.sleep(1)
+            print("Conexión cerrada.")
+
+# Creando objetos
+cuenta1 = CuentaBancaria("Cristofer Salazar", 1000)
+conexion = ConexionBD("localhost", "user", "password")
+
+# Eliminando objetos (el garbage collector se encargará de llamar a __del__)
+del cuenta1
+del conexion
+
+#Explicación:
+
+#CuentaBancaria: Representa una cuenta bancaria simple con un titular y un saldo.
+#ConexionBD: Simula una conexión a una base de datos, mostrando cómo gestionar recursos externos.
+
+#Constructor (__init__)
+#Inicializa los atributos del objeto al crearlo.
+#Imprime un mensaje para indicar que el objeto ha sido creado.
+#En el caso de ConexionBD, simula la conexión a la base de datos.
+
+#Destructor (__del__)
+#Se ejecuta automáticamente cuando el objeto ya no es necesario y está a punto de ser eliminado de la memoria.
+#Realiza tareas de limpieza, como cerrar conexiones a bases de datos o liberar otros recursos.
+#Imprime un mensaje para indicar que el objeto ha sido eliminado.
